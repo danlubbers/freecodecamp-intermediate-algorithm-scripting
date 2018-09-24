@@ -52,6 +52,7 @@ function destroyer(arr) {
         for (let j = 0; j < args.length; j++) {
             // If statement to check if current val of arr is equal to args, if so delete it.
             if (arr[i] === args[j]) {
+                console.log(arr[i])
                 delete arr[i]
             }
         }
@@ -62,3 +63,24 @@ function destroyer(arr) {
   
   console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));
   console.log(destroyer(["tree", "hamburger", 53], "tree", 53)); // should return ["hamburger"]
+
+// 4. Wherefore art thou
+
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+  let srcKeys = Object.keys(source);
+  console.log(srcKeys)
+
+  return collection.filter(obj => {
+      return srcKeys.map(key => {
+          return obj[key] === source[key]; // can use obj.hasOwnProperty(key) && but not necessary
+      })
+      .reduce((a, b) => a && b);
+  });
+    
+    // Only change code above this line
+  }
+  
+  console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));

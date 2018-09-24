@@ -84,3 +84,20 @@ function whatIsInAName(collection, source) {
   }
   
   console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
+
+// 5. Spinal Tap Case
+
+function spinalCase(str) {
+    // Create a variable for the white space and underscores
+    //  's' is white space and '_' is underscore and '+' is one or more
+    let regex = /\s+|_+/g;
+
+    // replace low-upper case to low-space-uppercase
+    str = str.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+    // replace space and underscore with -
+    return str.replace(regex, '-').toLowerCase();
+  }
+  
+  console.log(spinalCase('This Is Spinal Tap'));
+  console.log(spinalCase("thisIsSpinalTap"));

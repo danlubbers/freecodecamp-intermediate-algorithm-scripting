@@ -101,3 +101,35 @@ function spinalCase(str) {
   
   console.log(spinalCase('This Is Spinal Tap'));
   console.log(spinalCase("thisIsSpinalTap"));
+
+// 6. Pig Latin
+
+function translatePigLatin(str) {
+    // add regex variable of vowels
+    const vowels = /[aeiou]/gi;
+    let firstWord = str[0];
+    let newStr = '';
+
+    // if the string does not match any vowels, just add 'ay' to the end.
+    if(!str.match(vowels)) {
+        return str + 'ay';
+    // if the first letter is a vowel, just add 'way' to the end.
+    } else if(firstWord.match(vowels)) {
+        newStr = str + 'way'
+    // if the first 
+    } else {
+        // this variable find the index of the first vowel
+        let indexOfVowel = str.indexOf(str.match(vowels)[0]);
+        console.log(indexOfVowel);
+        // the first substring removes the first letter, the second substr places that removed letter at the end, then you just concatonate 'ay' to the end.
+        newStr = str.substr(indexOfVowel) + str.substr(0, indexOfVowel) + 'ay';
+    }
+    return newStr;    
+}
+  
+// first if statement
+console.log(translatePigLatin("psst"));
+// else if statement
+console.log(translatePigLatin("eight"));
+// else statement
+console.log(translatePigLatin("consonant"));

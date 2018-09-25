@@ -154,3 +154,22 @@ function myReplace(str, before, after) {
   
   console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
   console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+
+// 8. DNA Pairing
+
+function pairElement(str) {
+  return str.split('').map(e => {
+      switch (e) {
+        case 'G':
+            return ['G', 'C'];
+        case 'C':
+            return ['C', 'G'];
+        case 'A':
+            return ['A', 'T'];
+        case 'T':
+            return ['T', 'A'];
+        }
+    });
+}
+  
+  console.log(pairElement("GCG"));

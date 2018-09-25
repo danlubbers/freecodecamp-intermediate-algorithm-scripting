@@ -133,3 +133,24 @@ console.log(translatePigLatin("psst"));
 console.log(translatePigLatin("eight"));
 // else statement
 console.log(translatePigLatin("consonant"));
+
+// 7. Search and Replace
+
+function myReplace(str, before, after) {
+    // find index where before is on the str
+   let index = str.indexOf(before);
+   console.log(index);
+
+    // Checks if first letter is UpperCase
+   if(str[index] === str[index].toUpperCase()) {
+    // Change the after word to be capitalized 
+    after = after.charAt(0).toUpperCase() + after.slice(1)
+    }
+    // Replaces the original string with the edited one
+    str = str.replace(before, after)
+  
+    return str;
+  }
+  
+  console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+  console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));

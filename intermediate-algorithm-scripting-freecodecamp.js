@@ -158,7 +158,9 @@ function myReplace(str, before, after) {
 // 8. DNA Pairing
 
 function pairElement(str) {
+    // split and map over each element
   return str.split('').map(e => {
+    // use switch to check each element and return what is needed
       switch (e) {
         case 'G':
             return ['G', 'C'];
@@ -173,3 +175,28 @@ function pairElement(str) {
 }
   
   console.log(pairElement("GCG"));
+
+// 9. Missing Letters
+
+function fearNotLetter(str) {
+// split and store in arr variable
+ let arr = str.split('');
+//  map over the letters in arr and set the ascii numbers to each with charCodeAt
+ let ascii = arr.map(e => e.charCodeAt(0))   
+//  console.log(ascii)
+    // loop over each ascii number from the provided argument 
+    for (let i = 0; i <= ascii.length; i++) {
+        console.log(ascii[i]);
+        console.log(ascii[i-1]+1);
+        // if the number is greater 
+        if(ascii[i] > ascii[i-1]+1) {
+            console.log(ascii[i]-1)
+            // turns the ascii number back into the letter
+            return String.fromCharCode(ascii[i] - 1)
+        }
+    }
+    return str;
+  }
+  
+  console.log(fearNotLetter("abce"));
+//   console.log(fearNotLetter("abcdefghjklmno"));
